@@ -1,0 +1,32 @@
+<div>
+    <mat-form-field>
+        <mat-select placeholder="Mentorizado" [(value)]="idMentorizado">
+            <mat-option *ngFor="let p of mentorizados" [value]="p.idMentorizado">
+                {{p.nombres}}  
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Tipo de Mentoria" [(value)]="idEspecialidad">
+            <mat-option *ngFor="let e of especialidades" [value]="e.idEspecialidad">{{e.nombre }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Mentor" [(value)]="idMentor">
+            <mat-option *ngFor="let m of mentores" [value]="m.idMentor">{{m.nombres }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Escoge una fecha" 
+            [(ngModel)]="fechaSeleccionada">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+ 
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>

@@ -1,0 +1,76 @@
+<mat-toolbar>Registro de Mentores</mat-toolbar>
+
+<div class="example-container">
+
+
+    <mat-form-field>
+        <input matInput placeholder="Nombre y Apellidos " [(ngModel)]="nombreapellidos">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Telefono" [(ngModel)]="telefono">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Correo electronico" [(ngModel)]="correoelectronico">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Perfil " [(ngModel)]="perfil"></textarea>
+    </mat-form-field>
+
+    
+
+    <button mat-raised-button color="primary" (click)="aceptar()" >Registrar</button>
+
+
+</div>
+
+<mat-toolbar>Búsqueda de Mentoresss</mat-toolbar>
+
+<mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>
+
+     <div>
+    <mat-form-field>
+        <input matInput placeholder="Nombre Completo" [(ngModel)]="nombreCompletoFiltro">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="buscar()" >Buscar</button>
+
+</div>
+
+<mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="mentor">
+      <mat-header-cell *matHeaderCellDef> Mentor </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombres}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="telefono">
+      <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.telefono}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="correo">
+      <mat-header-cell *matHeaderCellDef> Correo electronico </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.correo}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="perfil">
+      <mat-header-cell *matHeaderCellDef> perfil </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.perfil}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button type="button" mat-raised-button color="primary" (click)="verDetalle(element)">Ver Detalle</button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  
