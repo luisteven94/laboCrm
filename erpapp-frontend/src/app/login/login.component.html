@@ -1,0 +1,17 @@
+<form #loginForm="ngForm">
+
+    <div class="inputGroup inputGroup1" style="text-align: center">
+      <label>ERPAPP</label>    
+    </div>
+
+    <div class="inputGroup inputGroup3">
+      <button id="login" type="button" (click)="iniciarSesion()">Iniciar Sesión
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+      </button>
+  
+    </div>
+  
+    <mat-card *ngIf="mensaje">{{mensaje}}</mat-card>
+    <mat-card *ngIf="error">{{error}}</mat-card>
+    
+  </form>

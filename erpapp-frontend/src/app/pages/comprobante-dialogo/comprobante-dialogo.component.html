@@ -1,0 +1,130 @@
+<div class="color-page-tr">
+    <h4 style="text-align: center; text-transform: uppercase; padding: 10px;">COMPROBANTE</h4>
+</div>
+<hr style="width: 95%;">
+<div class="preloader2" *ngIf="cargando">
+    <div class="loader2">
+        <p class="loader__label2">
+            <img src="assets\images\Double Ring-1s-200px.gif" style="background: transparent !important;" />
+        </p>
+    </div>
+</div>
+
+<div class="container" style="border-bottom: none;">
+    <div class="row">
+        <div class="col-3 text-center">
+            <img class="img-fluid" *ngIf="logo" alt="user" style="border-radius: 0px; height: 90px;" src="{{empresadat.urlimagen}}">
+        </div>
+        <div class="col-5" style="display: block; text-align: start;">
+            <p style="font-weight: bold;margin-bottom: 8px; margin-top: 10px;">EMPRESA 1</p>
+            <p style="margin-bottom: 6px; ">20123456785</p>
+            <!-- <p style="margin-bottom: 6px; ">{{empresadat.ubigeo.distrito}} - {{empresadat.ubigeo.provincia}}</p> -->
+         </div>
+        <div class="col-4" style="display: block ">
+            <label style="font-size: 19px; font-weight: bold;">No. </label>
+            <label style="font-size: 17px; font-weight: bold;">{{comprobante.serieDocumento}}-{{comprobante.numeroDocumento}}</label>
+        </div>
+    </div>
+</div>
+
+<hr style="width: 95%;">
+
+ 
+
+<hr style="width: 95%;"  >
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-7">
+            <div class="form-row col-12" style="margin-bottom: 5px;">
+                <div class="col-3" style="padding-right: 10px ">
+                    <label for="clie" style="font-size: 13px; margin-bottom: 0; margin: 9px 0; font-weight: bold;">Cliente:</label>
+                </div>
+                <div class="col-9" style="margin: 9px 0px;">
+                    <label style="font-size: 17px; font-weight: bold;">{{comprobante.consulta.mentorizado.nombres}}</label>
+                </div>
+            </div>
+            <div class="form-row col-12" style="margin-bottom: 5px;">
+                <div class="col-3" style="padding-right: 10px">
+                    <label for="ident" style="font-size: 13px; margin-bottom: 0; margin: 9px 0; font-weight: bold;">Dirección:</label>
+                </div>
+                <div class="col-9" style="margin: 9px 0px;">
+                    <label style="margin-bottom: 0px;">  </label>
+                </div>
+            </div>
+            <div class="form-row col-12" style="margin-bottom: 5px;">
+                <div class="col-3" style="padding-right: 10px">
+                    <label for="telf" style="font-size: 13px; margin-bottom: 0; margin: 9px 0; font-weight: bold;">Teléfono:</label>
+                </div>
+                <div class="col-9" style="margin: 9px 0px;">
+                    <label style="margin-bottom: 0px;">{{comprobante.consulta.mentorizado.telefono}}</label>
+                </div>
+            </div>
+      
+        </div>
+        <div class="col-5">
+            <div class="form-row col-12" style="margin-bottom: 5px;">
+                <div class="col-6" style="padding-right: 10px;">
+                    <label for="ident" style="font-size: 13px; margin-bottom: 0; margin: 9px 0; font-weight: bold;">Fecha Documento:</label>
+                </div>
+                <div class="col-6" style="margin: 9px 0px;">
+                    <label style="margin-bottom: 0px;">{{comprobante.fechaDocumento}}</label>
+                </div>
+            </div>
+        
+     
+            <div class="form-row col-12" style="margin-bottom: 5px;">
+                <div class="col-6" style="padding-right: 10px;">
+                    <label for="clie" style="font-size: 13px; margin-bottom: 0; margin: 9px 0; font-weight: bold;">Tipo de Moneda:</label>
+                </div>
+                <div class="col-6" style="margin: 9px 0px;">
+                    <label style="margin-bottom: 0px;">{{comprobante.moneda}}</label>
+                </div>
+            </div>
+       
+        
+        </div>
+        <div   class="form-row col-12" style="margin-top: 50px; margin-left: 0; margin-bottom: 30px;">
+            <div class="table-responsive">
+                <table class="table table-borderless" style="width: 100%;margin-bottom: 0px;">
+                    <thead>
+                         <th style="text-align:center; width: 349px;padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">Descripción</th>
+                        <th style="text-align:center; width: 75px;padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">Precio.</th>
+                          <th style="text-align:center; width: 91px;padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">IGV</th>
+                        <th style="text-align:center; width: 66px;padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">Cantidad</th>
+                        <th style="text-align:center; width: 96px;padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; font-weight: bold;">Total</th>
+                    </thead>
+                    <tbody>
+                        <tr  style="font-size: 13px;">
+                     
+                            <td style="padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; text-align: center;">
+                                {{comprobante.consulta.especialidad.nombre}}
+                            </td>
+                            <td style="padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; text-align: center;">
+                               60
+                            </td>
+                    
+                            <td style="padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; text-align: center;">
+                                <!-- descuento-->
+                            </td>
+                         
+                            <td style="padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; text-align: center;">
+                               1
+                            </td>
+                            <td style="padding-left: 0; padding-right: 3px; padding-top: 5px; padding-bottom: 5px; text-align: center;">
+                                60
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+ 
+     </div>
+</div>
+
+<div class=" modal-footer ">
+ 
+
+     <button (click)="cancelar()" type="button " class="btn btn-danger btn-sm min " style="margin: 0px 5px; ">Retroceder</button>
+ </div>

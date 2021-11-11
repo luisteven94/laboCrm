@@ -11,10 +11,10 @@ import { EspecialComponent } from './pages/consulta/especial/especial.component'
 
 const routes: Routes = [
  
-  { path: 'sesiones', component: MedicoComponent, canActivate: [GuardService] },
+  { path: 'prospectos', component: MedicoComponent, canActivate: [GuardService] },
  
   {
-    path: 'especialidad', component: EspecialidadComponent, children: [
+    path: 'facturacion', component: EspecialidadComponent, children: [
       { path: 'nuevo', component: EspecialidadEdicionComponent },
       { path: 'edicion/:id', component: EspecialidadEdicionComponent }
     ], canActivate: [GuardService]

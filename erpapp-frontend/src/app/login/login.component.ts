@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   iniciarSesion() {
-      this.loginService.login("mitocode", "123").subscribe(data => {
+      this.loginService.login("jaime", "123").subscribe(data => {
 
       if (data) {
 
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
         this.menuService.listarPorUsuario(decodedToken.user_name).subscribe(data => {
           this.menuService.menuCambio.next(data);
-          this.router.navigate(['sesiones']);
+          this.router.navigate(['prospectos']);
         });
         
       }
